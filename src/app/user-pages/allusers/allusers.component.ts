@@ -76,31 +76,31 @@ export class AllusersComponent implements OnInit {
   //selected_item parameter : an object carries all instances for the selected row
   SelectedUpdateUser: any;
   UpdateSelected(content, selected_user) {
-    this.SelectedUpdateUser = selected_user.Id;
+    // this.SelectedUpdateUser = selected_user.Id;
     this.modalService.open(content, { size: "xl" });
   }
 
   //here is the function needed to call an api to add a new user admin
   Sumbitnewuser() {
-    let body = {
-      Username: this.adduserForm.controls.Username.value,
-      Email: this.adduserForm.controls.email.value,
-      Password: this.adduserForm.controls.password.value,
-      FirstName: this.adduserForm.controls.Firstname.value,
-      LastName: this.adduserForm.controls.Lastname.value,
-      MiddleName: this.adduserForm.controls.Middlename.value,
-      Phone: this.adduserForm.controls.phonenumber.value,
-    };
-    this.apiServices.PostMethod("User", body).subscribe(
-      (data) => {
-        this.modalService.dismissAll();
-        alert("Done add a new admin user");
-        this.GetAllUsers();
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    // let body = {
+    //   Username: this.adduserForm.controls.Username.value,
+    //   Email: this.adduserForm.controls.email.value,
+    //   Password: this.adduserForm.controls.password.value,
+    //   FirstName: this.adduserForm.controls.Firstname.value,
+    //   LastName: this.adduserForm.controls.Lastname.value,
+    //   MiddleName: this.adduserForm.controls.Middlename.value,
+    //   Phone: this.adduserForm.controls.phonenumber.value,
+    // };
+    // this.apiServices.PostMethod("User", body).subscribe(
+    //   (data) => {
+    //     this.modalService.dismissAll();
+    //     alert("Done add a new admin user");
+    //     this.GetAllUsers();
+    //   },
+    //   (error) => {
+    //     console.log(error);
+    //   }
+    // );
   }
 
   //here is the function needed to check for the confirm password and password if there are the same
@@ -121,34 +121,33 @@ export class AllusersComponent implements OnInit {
   //open function is called by an instance for the modal service
   SelectedUser: User;
   DeleteSelected(content, selected_user) {
-    debugger;
-    this.SelectedUser = selected_user.Id;
+    // debugger;
+    // this.SelectedUser = selected_user.Id;
     this.modalService.open(content);
   }
 
   //here is the function needed to call an api resposible for update
   //this function call an endpoint api needed that update the selected data
   ConfirmUpdate() {
-    let body = {
-      Id: this.SelectedUpdateUser,
-      Username: this.updateuserform.controls.Username.value,
-      Email: this.updateuserform.controls.email.value,
-      Password: this.updateuserform.controls.password.value,
-      FirstName: this.updateuserform.controls.Firstname.value,
-      LastName: this.updateuserform.controls.Lastname.value,
-      MiddleName: this.updateuserform.controls.Middlename.value,
-      Phone: this.updateuserform.controls.phonenumber.value,
-    };
-
-    this.apiServices.UpdateMethod("User", body).subscribe(
-      (data) => {
-        this.modalService.dismissAll();
-        this.GetAllUsers();
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    // let body = {
+    //   Id: this.SelectedUpdateUser,
+    //   Username: this.updateuserform.controls.Username.value,
+    //   Email: this.updateuserform.controls.email.value,
+    //   Password: this.updateuserform.controls.password.value,
+    //   FirstName: this.updateuserform.controls.Firstname.value,
+    //   LastName: this.updateuserform.controls.Lastname.value,
+    //   MiddleName: this.updateuserform.controls.Middlename.value,
+    //   Phone: this.updateuserform.controls.phonenumber.value,
+    // };
+    // this.apiServices.UpdateMethod("User", body).subscribe(
+    //   (data) => {
+    //     this.modalService.dismissAll();
+    //     this.GetAllUsers();
+    //   },
+    //   (error) => {
+    //     console.log(error);
+    //   }
+    // );
   }
 
   //here is the function needed to open a modal needed to update the selected
@@ -156,29 +155,29 @@ export class AllusersComponent implements OnInit {
   //here is the function needed to call an api to delete the selected user
   //the endpoint api needed takes the selected user id needed to be deleted
   ConfirmDeleteSelected() {
-    this.apiServices.DeleteMethod("User", this.SelectedUser).subscribe(
-      (data) => {
-        this.modalService.dismissAll();
-        this.GetAllUsers();
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    // this.apiServices.DeleteMethod("User", this.SelectedUser).subscribe(
+    //   (data) => {
+    //     this.modalService.dismissAll();
+    //     this.GetAllUsers();
+    //   },
+    //   (error) => {
+    //     console.log(error);
+    //   }
+    // );
   }
 
   //here is the function needed to get all added users as admins
   GetAllUsers() {
-    console.log("get function is fired");
-    this.apiServices.GetMethod("User").subscribe(
-      (data: any) => {
-        debugger;
-        this.AllUsers = data;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    // console.log("get function is fired");
+    // this.apiServices.GetMethod("User").subscribe(
+    //   (data: any) => {
+    //     debugger;
+    //     this.AllUsers = data;
+    //   },
+    //   (error) => {
+    //     console.log(error);
+    //   }
+    // );
   }
 
   //here is the function needed to close the modal needed to add a new user admin
