@@ -9,7 +9,7 @@ app.use(express.static("./dist/PurpleAdmin-Free-Angular-Admin-Template"));
 
 app.get("/*", (req, res) =>
   res.sendFile("index.html", {
-    root: "dist/PurpleAdmin-Free-Angular-Admin-Template/",
+    root: "dist/PurpleAdmin-Free-Angular-Admin-Template",
   })
 );
 
